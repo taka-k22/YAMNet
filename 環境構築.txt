@@ -1,0 +1,28 @@
+YOU HAVE TO USE Python 3.11
+
+py -3.11 -m venv yamnet-py311
+
+yamnet-py311\Scripts\activate
+
+python -m pip install --upgrade pip setuptools wheel
+
+pip install tensorflow-cpu==2.15.0 tensorflow-hub==0.16.1 sounddevice numpy matplotlib
+
+pip install jupyter ipykernel
+
+python -m ipykernel install --user --name yamnet-cpu --display-name "YAMNet (CPU)"
+
+pip install pandas
+
+（Jupyterlabが古いカーネルキャッシュをつかんでいる場合）
+rmdir /s /q "%LOCALAPPDATA%\Temp\tfhub_modules"
+
+
+VB-Inputは2ch, 16000Hzにあわせる．
+
+CSVの件
+tf.keras.utils.get_file() を使うと、一度ローカルにダウンロードしてから読むんですが、
+GitHubのraw URLを指定した場合に途中でHTMLが返るケースがあります。
+（とくにリダイレクトが挟まると、ファイルの中身が<!DOCTYPE html>から始まる）
+
+なので、get_file()は使わず、pandasで直接URLを読むのが確実です。
