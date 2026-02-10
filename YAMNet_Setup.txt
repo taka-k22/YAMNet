@@ -2,13 +2,13 @@ YOU HAVE TO USE Python 3.11
 
 py -3.11 -m venv yamnet-py311
 
-yamnet-py311\Scripts\activate
+yamnet-py311\Scripts\activate ←これをやらないとJupyterが動かないかも
 
 python -m pip install --upgrade pip setuptools wheel
 
 pip install tensorflow-cpu==2.15.0 tensorflow-hub==0.16.1 sounddevice numpy matplotlib
 
-pip install jupyter ipykernel
+pip install ipykernel
 
 python -m ipykernel install --user --name yamnet-cpu --display-name "YAMNet (CPU)"
 
